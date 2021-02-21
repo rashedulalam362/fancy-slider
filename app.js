@@ -143,6 +143,11 @@ searchInput.addEventListener('keyup', function (e) {
 })
 
 
+sliderBtn.addEventListener('click', function () {
+  createSlider()
+})
+
+
 const toggleSpinner=(show)=>{
 const spinner=document.getElementById("loading-spinner")
 if (show){
@@ -152,6 +157,4 @@ else{
   spinner.classList.add('d-none')
 }
 }
-
-
 
