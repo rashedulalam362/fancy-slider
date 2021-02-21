@@ -1,3 +1,4 @@
+
 const imagesArea = document.querySelector('.images');
 const gallery = document.querySelector('.gallery');
 const galleryHeader = document.querySelector('.gallery-header');
@@ -30,24 +31,29 @@ const showImages = (images) => {
 }
 
 const getImages = (query) => {
+  toggleSpinner(true)
+
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
     .catch(err => console.log(err))
+ 
 }
 
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add('added');
+  element.classList.toggle('added');
  
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
   } else {
-    alert('Hey, Already added !')
+    sliders.splice(item, 1);
   }
+
 }
+
 var timer
 const createSlider = () => {
   // check slider image length
@@ -130,9 +136,19 @@ searchInput.addEventListener('keyup', function (e) {
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
+
 })
 
 
-sliderBtn.addEventListener('click', function () {
-  createSlider()
-})
+const toggleSpinner=(show)=>{
+const spinner=document.getElementById("loading-spinner")
+if (show){
+  spinner.classList.remove('d-none');
+}
+else{
+  spinner.classList.add('d-none')
+}
+}
+
+
+
