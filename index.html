@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -20,10 +21,19 @@
   <div class="container">
     <h4 class="mt-2 text-center">Search Image for create slider</h4>
     <div class="form-inline mt-3 d-flex justify-content-center">
+      <!-- spinner --> 
+  
+    <div id="loading-spinner" class="d-flex justify-content-center d-none "  >
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
       <div class="input-group col-md-6 mb-2">
         <input type="text" class="form-control" id="search" placeholder="nature">
       </div>
       <button type="button" id="search-btn" class="btn btn-primary mb-2">Search</button>
+      
+
     </div>
     <section class="images">
       <div class="justify-content-around align-items-center mt-3 gallery-header mb-2">
@@ -37,14 +47,7 @@
 
       </div>
     </section>
-    <!-- spinner --> 
-  
-    <div id="loading-spinner" class="d-flex justify-content-center d-none "  >
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-
+    
    
     <div class="main">
       <section class="mt-5" id="sliders">
